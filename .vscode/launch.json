@@ -1,0 +1,38 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PyTest Target File",
+            "type": "debugpy",
+            "request": "launch",
+            "console": "integratedTerminal",
+            "module": "pytest",
+            "justMyCode": true,
+            "args": ["-vv", "--capture=tee-sys", "-k ${input:startTest}"],
+            "cwd": "${workspaceFolder}" 
+        }, 
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Serverless",
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "debug"
+            ],
+            "sourceMaps": true
+
+        }
+    ],
+    "inputs": [
+        {
+            "id": "startTest",
+            "type": "promptString",
+            "description": "Additional test name"
+        }
+    ]
+}

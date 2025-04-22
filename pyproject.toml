@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "it-crystal"
+version = "0.1.0"
+description = ""
+authors = ["DevLopes011 <joao.arl.99@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+boto3 = "^1.35.84"
+pydantic = "^2.10.4"
+aws-lambda-powertools = "^3.3.0"
+python-dotenv = "^1.0.1"
+dynamodb-json = "^1.4.2"
+loguru = "^0.7.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+boto3-stubs = {version = "1.35.84", extras = ["dynamodb", "dynamodbstreams", "sns", "sqs"]}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
