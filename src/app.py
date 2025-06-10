@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import sys
 
-
+#teste
 sys.path.insert(0, f"{str(Path(os.path.abspath(__file__)).parents[1])}/vendor")
 
 from src.adapters.driver.AWS_Lambda.handlers.create_equipment_handler import create_equipment_handler

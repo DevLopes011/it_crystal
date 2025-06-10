@@ -22,7 +22,7 @@ pip install -r deps.txt
 
 # 4. Executa o deploy
 echo -e "\nIniciando deploy com Serverless Framework..."
-serverless deploy --stage prod --verbose || {
+serverless deploy --stage $STAGE --verbose || {
     echo "Erro durante o deploy" >&2
     exit 1
 }
