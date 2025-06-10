@@ -1,10 +1,8 @@
-from pydantic import ValidationError
 from src.adapters.driver.AWS_Lambda.schemas.list_asset_schema import MainListAssetResponseSchema
 from src.core.domain.entities.equipment_entity import EquipmentEntity
 from src.core.domain.aggregate.asset_aggregate import AssetAggregate
 from src.core.helpers.exceptions.item_not_found_error import ItemNotFoundError
 from src.core.use_cases.equipment_use_case import EquipmentUseCase
-import json
 
 def list_equipment_handler (event, context):
     try:

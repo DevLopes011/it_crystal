@@ -25,3 +25,8 @@
     - O assetAggregate passará a ter vários equipamentos e um usuário
     - Não teremos mais rotas para alterar assets teremos rotas para alterar equipamentos (Basicamente mudar nomes do CRUD)
     - Criar uma rota para retornar todos os equipamentos de um usuário que será o asset aggregate
+
+- Imagens S3
+    - Registrar uma imagem inicial para identificar o equipamento
+    - Adicionar até 4 imagens por equipamento
+    - Poder editar imagens

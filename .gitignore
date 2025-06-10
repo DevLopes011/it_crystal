@@ -302,3 +302,5 @@ dist
 .pnp.*
 
 + poetry.lock
+
+vendor

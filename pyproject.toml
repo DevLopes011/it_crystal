@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "it-crystal"
+name = "it_crystal"
 version = "0.1.0"
 description = ""
 authors = ["DevLopes011 <joao.arl.99@gmail.com>"]

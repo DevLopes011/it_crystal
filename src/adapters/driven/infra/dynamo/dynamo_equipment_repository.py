@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 class DynamoEquipmentRepository(EquipmentRepository):
     def __init__(self):
-        self.table_name = os.getenv("DYNAMO_EQUiPMENT")
+        self.table_name ="Equipment_table"
         if not self.table_name:
             raise ValueError("A variável de ambiente DYNAMO_EQUiPMENT não está definida.")
         

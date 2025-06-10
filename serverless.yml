@@ -12,12 +12,11 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb: PutItem
-        - dynamodb: GetItem
-        - dynamodb: UpdateItem
-        - dynamodb: DeleteItem
-        - dynamodb: Scan
-
+        - "dynamodb:PutItem"
+        - "dynamodb:GetItem"
+        - "dynamodb:UpdateItem"
+        - "dynamodb:DeleteItem"
+        - "dynamodb:Scan"
       Resource:
         - "arn:aws:dynamodb:us-east-1:*:table/Equipment_table"
 
@@ -29,36 +28,35 @@ custom:
 
 functions:  
   create_equipment_handler:
-    handler: src.adapters.driver.AWS_Lambda.handlers.create_equipment_handler.create_equipment_handler
+    handler: src/app.create_equipment_handler
     events:
       - http:
           path: /equipment/create
           method: post
 
   list_equipment_handler:
-    handler: src.adapters.driver.AWS_Lambda.handlers.list_equipment_handler.list_equipment_handler
+    handler: src/app.list_equipment_handler
     events:
       - http:
           path: /equipment/list
           method: get
 
   get_equipment_handler:
-    handler: src.adapters.driver.AWS_Lambda.handlers.get_equipment_handler.get_equipment_handler
+    handler: src/app.get_equipment_handler
     events:
       - http:
           path: /equipment/get/{id}
           method: get
 
-
   update_equipment_handler:
-    handler: src.adapters.driver.AWS_Lambda.handlers.update_equipment_handler.update_equipment_handler
+    handler: src/app.update_equipment_handler
     events:
       - http:
           path: /equipment/update/{id}
           method: put
 
   delete_equipment_handler:
-    handler: src.adapters.driver.AWS_Lambda.handlers.delete_equipment_handler.delete_equipment_handler
+    handler: src/app.delete_equipment_handler
     events:
       - http:
           path: /equipment/delete/{id}
@@ -68,16 +66,16 @@ plugins:
   - serverless-python-requirements
   - serverless-offline
 
-resources:
-  Resources:
-    equipmentTable:
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: equipment
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
+# resources:
+#   Resources:
+#     equipmentTable:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: Equipment_table
+#         AttributeDefinitions:
+#           - AttributeName: id
+#             AttributeType: S
+#         KeySchema:
+#           - AttributeName: id
+#             KeyType: HASH
+#         BillingMode: PAY_PER_REQUEST
